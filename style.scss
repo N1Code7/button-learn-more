@@ -1,0 +1,113 @@
+// RESET
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 0;
+  font-family: "Helvetica Neue";
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+
+  .background {
+    background: #333;
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    z-index: -10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: width 0.25s ease-in;
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      margin: auto;
+      // margin-right: 20px;
+      // padding-left: 17px;
+      transition: transform 0.25s ease-in;
+
+      &__body {
+        width: 25px;
+        height: 3px;
+        background: white;
+        position: absolute;
+        opacity: 0;
+        transition: opacity 0.2s ease-in;
+        left: 19px;
+        z-index: -1;
+      }
+
+      &__head {
+        display: block;
+        margin-left: -5px;
+        background: transparent;
+        width: 15px;
+        height: 15px;
+        border-top: 3px solid #fff;
+        border-right: 3px solid #fff;
+        transform: rotate(45deg);
+        z-index: 1;
+        // margin-left: -55px;
+        // top: 50%;
+        // left: 50%;
+        // transform: rotate(45deg) translate(-50%, -50%);
+      }
+    }
+
+    .text {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 1.4rem;
+      padding: 0 50px 0 30px;
+      transition: color 0.25s ease-in;
+      color: #333;
+    }
+  }
+
+  &:hover {
+    .background {
+      width: 100%;
+    }
+    .arrow {
+      transform: translateX(20px);
+    }
+    .arrow__body {
+      display: block;
+      opacity: 1;
+    }
+    .text {
+      color: #fff;
+    }
+  }
+}
